@@ -8,14 +8,23 @@
  - git log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n''          %C(white)%s%C(reset) %C(dim white)- %an%C(reset)' --all
 
 ### Edit the last commit
- - git add .
- - git commit -m "Some cool message"
+ - ```git add .```
+ - ```git commit -m "Some cool message"```
     - Ops, I forgot something and I dont want to generate another commit
- - git add new-file-changed.js
- - git commit --amend 
+ - ```git add new-file-changed.js```
+ - ```git commit --amend ```
     - The preview commit will bee merged 
     - Dont do it if the commit was alread pushed to remote
- - git commit --amend --author "username <email@email.com>" // Edit the preview commit changing the author
+ - ```git commit --amend --author "username <email@email.com>"``` // Edit the preview commit changing the author
+
+### Unstage added files 
+ - ```git add . ```// Stage all files 
+ - ```git reset HEAD ```
+
+### Restore working directory or got to some point of git history
+ -``` git checkout src/main/``` // Restore src/main to the last state 
+ - ```git checkout commit_id``` // Got to commit_id
+ - ```git checkout some-branch ```// Switch to some-branch
 
 ### merge remote branch before merge request 
 Sync remote development branch with local before sending merge request
@@ -63,7 +72,7 @@ Sync remote development branch before commit
  - ```git log --oneline``` // Verify the commit id where you want to change
  - ```git rebase -i HEAD~5``` // The number represents how much commits must be returned to be edited
     - on the screen find the commit you want edit and rename 'pick' to 'edit' then save 
-    - make the need changes
-        - case you dont want do any change, ```git rebase --abort```
+    - make the needed changes
+        - case you dont want to do any change, ```git rebase --abort```
  - ```git rebase --continue```
  - ```git push origin remote-branch -f``` ( Dont do it! )
